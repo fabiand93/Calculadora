@@ -25,16 +25,17 @@ public class tablero extends JFrame{
 
 		//Inicia la ventana
 		JFrame cuadro = new JFrame("Tablero");
-	  cuadro.setSize(450,300);
+		cuadro.setSize(450,300);
 		cuadro.setVisible(true);
 		cuadro.setResizable(false);
+		//comentario de prueba
+		
 		cuadro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
 		cuadro.getContentPane().setLayout(new BorderLayout(4, 4));
 
 			JPanel texto = new JPanel();
 			texto.setBounds(0, 0, 450, 124);
-			getContentPane().add(texto);
+			cuadro.getContentPane().add(texto);
 			texto.setLayout(null);
 
 				entrada = new JTextField();
@@ -53,7 +54,7 @@ public class tablero extends JFrame{
 
 			JPanel botones = new JPanel();
 			botones.setBounds(0, 136, 450, 142);
-			getContentPane().add(botones);
+			cuadro.getContentPane().add(botones);
 			botones.setLayout(null);
 
 				JButton uno = new JButton("1");
