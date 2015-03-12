@@ -15,21 +15,17 @@ public class tablero extends JFrame{
 	private static final long serialVersionUID = 1L;
 	JFrame cuadro;
 	JTextField entrada, salida;
-	Panel panelNorte, panelSur;
-	JPanel fondo, text, botones;
+	JPanel text, botones;
 	JButton uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero;
-	JButton punto, mas, menos, por, sobre, igual, limpiar;
+	JButton punto, mas, menos, por, sobre, igual, del;
 
 
 	public tablero(){
 
-		//Inicia la ventana
 		JFrame cuadro = new JFrame("Tablero");
 		cuadro.setSize(450,300);
 		cuadro.setVisible(true);
 		cuadro.setResizable(false);
-		//comentario de prueba
-		
 		cuadro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cuadro.getContentPane().setLayout(new BorderLayout(4, 4));
 
@@ -39,15 +35,15 @@ public class tablero extends JFrame{
 			texto.setLayout(null);
 
 				entrada = new JTextField();
-				entrada.setHorizontalAlignment(SwingConstants.CENTER);
+				entrada.setHorizontalAlignment(SwingConstants.RIGHT);
 				entrada.setBackground(Color.LIGHT_GRAY);
 				entrada.setBounds(0, 25, 450, 35);
 				texto.add(entrada);
 				entrada.setColumns(10);
 
 				salida = new JTextField();
-				salida.setHorizontalAlignment(SwingConstants.CENTER);
-				salida.setBounds(0, 65, 450, 35);
+				salida.setHorizontalAlignment(SwingConstants.RIGHT);
+				salida.setBounds(0, 55, 450, 35);
 				texto.add(salida);
 				salida.setBackground(Color.LIGHT_GRAY);
 				salida.setColumns(10);
@@ -116,7 +112,5 @@ public class tablero extends JFrame{
 				JButton sobre = new JButton("/");
 				sobre.setBounds(318, 6, 58, 29);
 				botones.add(sobre);
-
-
 	}
 }

@@ -36,13 +36,13 @@ public class interfaz implements ActionListener{
 
     public void norte(){
 
-        panel = new Panel(null);        
+        panel = new Panel(null);
 
         jt1 = new JTextField("");
         jt2 = new JTextField("0");
 
-        jt1.setHorizontalAlignment(JTextField.RIGHT); 
-        jt2.setHorizontalAlignment(JTextField.RIGHT); 
+        jt1.setHorizontalAlignment(JTextField.RIGHT);
+        jt2.setHorizontalAlignment(JTextField.RIGHT);
 
         //Quitar bordes a los campos de texto
         jt1.setBorder(BorderFactory.createLineBorder(Color.white));
@@ -73,8 +73,8 @@ public class interfaz implements ActionListener{
         botMem();
         botNum();
         botOpe();
-        pS.add(pb2, BorderLayout.CENTER); 
-        pS.add(pb3, BorderLayout.EAST); 
+        pS.add(pb2, BorderLayout.CENTER);
+        pS.add(pb3, BorderLayout.EAST);
 
         pS.setSize(270, 330);
     }
@@ -97,7 +97,7 @@ public class interfaz implements ActionListener{
                 numeros[i] = new JButton(""+i);
                 pb2.add(numeros[i]);
                 numeros[i].setMargin(new Insets(1, 1, 1, 1));
-                numeros[i].addActionListener(this);  
+                numeros[i].addActionListener(this);
             }
             else{
                 numeros[i] = new JButton(".");
@@ -119,20 +119,20 @@ public class interfaz implements ActionListener{
                     numeros[i].setBounds(nx3, n3y, 35, 35);
                     nx3-=43;
                 }
-                else if(i<=6 && i>=4){   
-                    n3y+=43;                    
+                else if(i<=6 && i>=4){
+                    n3y+=43;
                     numeros[i].setBounds(nx2, n2y, 35, 35);
                     nx2-=43;
                 }
                 else if(i<=3 && i>=1){
-                    n3y+=43;                    
+                    n3y+=43;
                     numeros[i].setBounds(nx1, n1y, 35, 35);
                     nx1-=43;
                 }
                 else if(i==0){
-                    numeros[i].setBounds(35, 129, 78, 35);                    
+                    numeros[i].setBounds(35, 129, 78, 35);
                 }
-            }                
+            }
         }
 
         pb2.setSize(170, 150);
@@ -158,7 +158,7 @@ public class interfaz implements ActionListener{
                     operaciones[i].setMargin(new Insets(1, 1, 1, 1));
                     operaciones[i].addActionListener(this);
                     x+=33;
-                    c++;               
+                    c++;
             }
             else{
                 if(i==6){
@@ -184,9 +184,9 @@ public class interfaz implements ActionListener{
                     operaciones[i].setMargin(new Insets(1, 1, 1, 1));
                     operaciones[i].addActionListener(this);
                     x+=33;
-                    c++;   
-                }                             
-            }                
+                    c++;
+                }
+            }
 
         }
 
@@ -219,47 +219,47 @@ public class interfaz implements ActionListener{
             else{
                 if(tipOp==0){
                     if(t){
-                        ax=""; 
+                        ax="";
 
-                        jt1.setText(jt2.getText());                        
+                        jt1.setText(jt2.getText());
                         ax += e.getActionCommand();
-                        jt2.setText(ax);    
+                        jt2.setText(ax);
                         t = false;
                     }
                     else{
                         ax="";
                         ax += jt2.getText()+e.getActionCommand();
                         jt2.setText(ax);
-                    }                
+                    }
                 }else{
                     ax="";
                     ax += jt2.getText()+e.getActionCommand();
                     jt2.setText(ax);
                 }
-            }            
+            }
         }
         else{//cuando se oprime el resto de botones
 
             if(e.getActionCommand().equals("R") ){
                 jt1.setText("");
                 Float a = Float.parseFloat(jt2.getText());
-                jt2.setText(""+Math.sqrt(a)); 
+                jt2.setText(""+Math.sqrt(a));
             }
             if(e.getActionCommand().equals("C") ){ //para reiniciar valores y limpiar pantalla
                 tipOp=0; n1 = 0; n2 =0; nr=0; jt1.setText(""); jt2.setText("0"); ax="";
-            }   
-           
+            }
+
             if(e.getActionCommand().equals("MR")){//para mostrar valor almacenado en la memoria
                 jt1.setText("");
                 jt2.setText(String.valueOf(M));
             }
-            
+
             if(e.getActionCommand().equals("M+")){//sumar valor de la pantalla con el valor de la memoria
                 M += Float.parseFloat(jt2.getText());
             }
             if(e.getActionCommand().equals("M-")){//restar valor de la pantalla con el valor de la memoria
                 M -= Float.parseFloat(jt2.getText());
-            }    
+            }
             if(e.getActionCommand().equals(".")){//usar el punto para los decimales
                 ax="";
                 if(numeros[10].isEnabled()){
@@ -275,7 +275,7 @@ public class interfaz implements ActionListener{
 
                 }else if(tipOp==0 ){//validacion para no chocar con otras operaciones
                         if(jt1.getText().equals("") ){
-                            n1 = Float.parseFloat(jt2.getText());                    
+                            n1 = Float.parseFloat(jt2.getText());
                             ax += jt1.getText()+jt2.getText();
                             jt1.setText(ax+" + ");
                             jt2.setText("");
@@ -283,21 +283,21 @@ public class interfaz implements ActionListener{
                         }
                         else {
                             if(!t){//validacion para nueva operacion
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt2.getText();
                                 jt1.setText(ax+" + ");
                                 jt2.setText("");
                                 tipOp = 1;
                             }
                             else{//usar otras operaciones con la suma
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt1.getText();
                                 jt1.setText(ax+" + ");
                                 jt2.setText("");
                                 tipOp = 1;
                             }
                         }
-                    }                     
+                    }
              }
                 if(e.getActionCommand().equals("-") ){//cuando se decide restar
                     numeros[10].setEnabled(true);
@@ -306,7 +306,7 @@ public class interfaz implements ActionListener{
 
                     }else if(tipOp==0){//validacion para no chocar con otras operaciones
                         if(jt1.getText().equals("")){
-                            n1 = Float.parseFloat(jt2.getText());                    
+                            n1 = Float.parseFloat(jt2.getText());
                             ax += jt1.getText()+ jt2.getText();
                             jt1.setText(ax+" - ");
                             jt2.setText("");
@@ -314,21 +314,21 @@ public class interfaz implements ActionListener{
                         }
                         else{
                             if(!t){//validacion para nueva operacion
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt2.getText();
                                 jt1.setText(ax+" - ");
                                 jt2.setText("");
                                 tipOp = 2;
                             }
                             else{//usar otras operaciones con la suma
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt1.getText();
                                 jt1.setText(ax+" - ");
                                 jt2.setText("");
                                 tipOp = 2;
                             }
                         }
-                    }                    
+                    }
                 }
                 if(e.getActionCommand().equals("*") ){//cuando se decide multiplicar
                     numeros[10].setEnabled(true);
@@ -337,7 +337,7 @@ public class interfaz implements ActionListener{
 
                     }else if(tipOp==0){//validacion para no chocar con otras operaciones
                         if(jt1.getText().equals("")){
-                            n1 = Float.parseFloat(jt2.getText());                    
+                            n1 = Float.parseFloat(jt2.getText());
                             ax += jt1.getText()+jt2.getText();
                             jt1.setText(ax+" * ");
                             jt2.setText("");
@@ -345,21 +345,21 @@ public class interfaz implements ActionListener{
                         }
                         else{
                             if(!t){//validacion para nueva operacion
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt2.getText();
                                 jt1.setText(ax+" * ");
                                 jt2.setText("");
                                 tipOp = 3;
                             }
                             else{//usar otras operaciones con la suma
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt1.getText();
                                 jt1.setText(ax+" * ");
                                 jt2.setText("");
                                 tipOp = 3;
                             }
                         }
-                    }                      
+                    }
                 }
                 if(e.getActionCommand().equals("/") ){//cuando se decide dividir
                     numeros[10].setEnabled(true);
@@ -368,7 +368,7 @@ public class interfaz implements ActionListener{
 
                     }else if(tipOp==0){//validacion para no chocar con otras operaciones
                         if(jt1.getText().equals("")){
-                            n1 = Float.parseFloat(jt2.getText());                    
+                            n1 = Float.parseFloat(jt2.getText());
                             ax += jt1.getText()+jt2.getText();
                             jt1.setText(ax+" / ");
                             jt2.setText("");
@@ -376,21 +376,21 @@ public class interfaz implements ActionListener{
                         }
                         else{
                             if(!t){//validacion para nueva operacion
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt2.getText();
                                 jt1.setText(ax+" / ");
                                 jt2.setText("");
                                 tipOp = 4;
                             }
                             else{//usar otras operaciones con la suma
-                                n1 = Float.parseFloat(jt2.getText());                    
+                                n1 = Float.parseFloat(jt2.getText());
                                 ax += jt1.getText();
                                 jt1.setText(ax+" / ");
                                 jt2.setText("");
                                 tipOp = 4;
                             }
                         }
-                    }                      
+                    }
                 }
                 if(e.getActionCommand().equals("=") && !jt2.getText().equals("")){
                     t = true;
@@ -435,6 +435,6 @@ public class interfaz implements ActionListener{
                             JOptionPane.showMessageDialog(null, "No se puede realizar divison por 0");
                     }
                 }
-        }        
-    }       
+        }
+    }
 }
