@@ -1,42 +1,47 @@
 package logica;
-import javax.swing.*;
 
 public class Calculadora {
+
+	private double num1, num2, res;
+	public Calculadora(){
+	}
 	
-	private int eleccion;
-	private double a,b,suma,resta,multiplicacion,division,resultado;
+	public double getNum1(){
+		return num1;
+	}
+	public double getNum2(){
+		return num2;
+	}
+	public void setNum1(double num1){
+		this.num1=num1;
+	}
 	
-	 {
-		eleccion=Integer.parseInt(JOptionPane.showInputDialog("nCalculadoran"+
-            "[1] SUMAR"+"[2] RESTAR /n[3] MULTIPLICAR[4] DIVIDIR/n[5] SALIR"
-            +"Ingresa una opcion:"));
-		switch(eleccion){
-		case 1:
-			a=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el primer numero"));
-			b=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el segundo numero"));
-			resultado=a+b;
-			JOptionPane.showMessageDialog(null, "La suma es: "+ suma);
-			break;
-		case 2:
-			a=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el primer numero"));
-			b=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el segundo numero"));
-			resultado=a-b;
-			JOptionPane.showMessageDialog(null, "La resta es: "+ resta);
-			break;
-		case 3:
-			a=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el primer numero"));
-			b=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el segundo numero"));
-			resultado=a*b;
-			JOptionPane.showMessageDialog(null, "La multiplicacion es: "+ multiplicacion);
-			break;
-		case 4:
-			a=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el primer numero"));
-			b=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el segundo numero"));
-			resultado=a/b;
-			JOptionPane.showMessageDialog(null, "La division es: "+ division);
-			break;
+	public void setNum2(double num2){
+		this.num2=num2;
+	}
+	
+	public double sumar(){
+		this.res= this.num1+this.num2;
+		return this.res;
+	}
+	public double restar(){
+		res=num1-num2;
+		return res;
+	}
+	public double multiplicar(){
+		res=num1*num2;
+		return res;
+	}
+	public double dividir(){
+		if(num2!=0){
+			res=num1/num2;
 		}
-		while(resultado!=5);
+		else{
+			System.out.println("error");
+		}
+		return res;
 	}
 
+
+	
 }
