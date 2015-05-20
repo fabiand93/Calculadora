@@ -1,11 +1,11 @@
 package interfaz;
 
 import javax.swing.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Panel;
 
-public class tablero extends JFrame{
+public class VistaVentana extends JFrame{
 
 	/**
 	 * Fabian Diaz
@@ -20,7 +20,7 @@ public class tablero extends JFrame{
 	JButton punto, mas, menos, por, sobre, igual, del;
 
 
-	public tablero(){
+	public VistaVentana(){
 
 		JFrame cuadro = new JFrame("Tablero");
 		cuadro.setSize(450,300);
@@ -33,6 +33,7 @@ public class tablero extends JFrame{
 			texto.setBounds(0, 0, 450, 124);
 			cuadro.getContentPane().add(texto);
 			texto.setLayout(null);
+			texto.setVisible(true);
 
 				entrada = new JTextField();
 				entrada.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -52,6 +53,7 @@ public class tablero extends JFrame{
 			botones.setBounds(0, 136, 450, 142);
 			cuadro.getContentPane().add(botones);
 			botones.setLayout(null);
+			botones.setVisible(true);
 
 				JButton uno = new JButton("1");
 				uno.setBounds(83, 47, 58, 29);
@@ -113,4 +115,5 @@ public class tablero extends JFrame{
 				sobre.setBounds(318, 6, 58, 29);
 				botones.add(sobre);
 	}
+	
 }

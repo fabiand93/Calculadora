@@ -1,4 +1,6 @@
-package logica;
+package controlador;
+
+import logica.Selector;
 
 public class Main {
 
